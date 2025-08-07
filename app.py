@@ -9,7 +9,7 @@ st.set_page_config(page_title="Painel de Atendimento Médico", layout="wide")
 
 @st.cache_data
 def carregar_dados():
-    df = pd.read_csv("atendimento.csv", sep=';', encoding='latin-1')
+    df = pd.read_csv("planilha_pacientes.csv", sep=';', encoding='latin-1')
     df.columns = df.columns.str.strip()
     return df
 
@@ -79,7 +79,7 @@ csv = df.to_csv(index=False, sep=';', encoding='utf-8-sig').encode('utf-8-sig')
 st.download_button(
     label="Baixar CSV",
     data=csv,
-    file_name='atendimentos_export.csv',
+    file_name='planilha_pacientes.csv',
     mime='text/csv',
 )
 
